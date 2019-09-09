@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/v1/task")
 public class TaskController {
@@ -32,6 +32,7 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
     public TaskDto getTask(Long taskId){
+
         return new TaskDto(1L,"Test title", "Test content");
     }
 
@@ -43,6 +44,7 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
     public TaskDto updateTask(TaskDto task){
+
         return new TaskDto(1L,"Updated title", "Updated content");
     }
 
