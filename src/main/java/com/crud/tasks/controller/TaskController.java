@@ -25,15 +25,16 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTaskById")
-    public TaskDto getTasksById(Long id){
+    public TaskDto getTasksById(@RequestParam(name = "id") Long taskId){
         //return taskMapper.mapToTaskDto(service.findTaskById(id));
-        return taskMapper.mapToTaskDto(service.findTaskById(id));
+        return taskMapper.mapToTaskDto(service.findTaskById(taskId));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getTask")
-    public TaskDto getTask(Long taskId){
+    public TaskDto getTask(@RequestParam(name = "id") Long taskId){
 
-        return new TaskDto(1L,"Test title", "Test content");
+//        return new TaskDto(1L,"Test title", "Test content");
+        return new TaskDto(taskId,"Test title", "Test content");
     }
 
     //Request param zmienia wartosc wymagana w linku, teraz jest ?id bez niego byloby ?taskId
