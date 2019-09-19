@@ -23,17 +23,6 @@ public class TaskMapper {
                 task.getContent());
     }
 
-//    public TaskDto mapToTaskDto(final Optional<Task> task){
-//
-//        if(task.isPresent()){
-//            return mapToTaskDto(task.get());
-//        } else {
-//            //Or throw exception?
-//            return new TaskDto(-1L, "Not found", "Not founnd");
-//        }
-//
-//    }
-
     public List<TaskDto> mapToTaskDtoList(final List<Task> taskList){
         return taskList.stream()
                 .map(t -> new TaskDto(t.getId(),t.getTitle(),t.getContent()))
