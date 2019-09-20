@@ -24,26 +24,19 @@ repositories {
 //}
 
 dependencies {
-
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    //Heroku - postgres, my jar - mysql
-//    compile('mysql:mysql-connector-java')
-    compile('org.postgresql:postgresql')
-    annotationProcessor 'org.projectlombok:lombok'
     compile('org.springframework.boot:spring-boot-starter')
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    //For heroku
-    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    //Heroku - postgres, my jar - mysql
+//  compile('mysql:mysql-connector-java')
+    compile('org.postgresql:postgresql')
 
-}
-//    compile('org.springframework.boot:spring-boot-starter-data-jpa')
-//    compile('mysql:mysql-connector-java')
-//    implementation 'org.springframework.boot:spring-boot-starter'
-//    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    compileOnly 'org.projectlombok:lombok'
+    //For heroku this must be disabled
+    //providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}git
