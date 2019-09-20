@@ -39,4 +39,4 @@ dependencies {
     //For heroku this must be disabled
     //providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
-}git
+}
