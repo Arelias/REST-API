@@ -36,12 +36,10 @@ public class TrelloClient {
         TrelloBoardDto[] output;
         URI url = urlBuilder();
 
-
-
         try{
             //We are just mapping the response to array of trelloDto class instead of just one
             output = restTemplate.getForObject(url, TrelloBoardDto[].class);
-            return Optional.of(Arrays.asList(output)).orElse(new ArrayList<>());
+            return Arrays.asList(Optional.ofNullable(output).orElse(new TrelloBoardDto[0]));
         } catch (RestClientException e){
             LOGGER.error(e.getMessage(),e);
             return new ArrayList<>();
