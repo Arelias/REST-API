@@ -9,8 +9,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import java.util.Optional;
-
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -32,9 +30,6 @@ public class SimpleEmailServiceTest {
         simpleMailMessage.setTo(mail.getMailTo());
         simpleMailMessage.setSubject(mail.getSubject());
         simpleMailMessage.setText(mail.getMessage());
-        if(!Optional.ofNullable(mail.getToCC()).orElse("").equals("")){
-            simpleMailMessage.setCc(mail.getToCC());
-        }
         //When
         simpleEmailService.send(mail);
         //Then
