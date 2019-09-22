@@ -3,12 +3,10 @@ package com.crud.tasks.trello.client;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.mapper.CreatedTrelloCard;
-
 import com.crud.tasks.trello.config.TrelloConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -32,10 +30,8 @@ public class TrelloClient {
     private TrelloConfig trelloConfig;
 
     public List<TrelloBoardDto> getTrelloBoards() {
-
         TrelloBoardDto[] output;
         URI url = urlBuilder();
-
         try{
             //We are just mapping the response to array of trelloDto class instead of just one
             output = restTemplate.getForObject(url, TrelloBoardDto[].class);
