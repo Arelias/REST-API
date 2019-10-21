@@ -5,9 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -30,4 +29,11 @@ public class TrelloCardDto {
     @JsonProperty("badges")
     private List<TrelloBadgeDto> badges;
 
+    public TrelloCardDto(String name, String description, String pos, String listId) {
+        this.name = name;
+        this.description = description;
+        this.pos = pos;
+        this.listId = listId;
+        badges = new ArrayList<>();
+    }
 }
