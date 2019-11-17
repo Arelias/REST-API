@@ -27,9 +27,9 @@ public class TaskMapperTestSuite {
         //When
         Task task = taskMapper.mapToTask(taskDto);
         //Then
-        assertEquals(java.util.Optional.ofNullable(1337L), java.util.Optional.ofNullable(task.getId()));
-        assertEquals(java.util.Optional.ofNullable("Coverage task"), java.util.Optional.ofNullable(task.getTitle()));
-        assertEquals(java.util.Optional.ofNullable("Coverage coverage"), java.util.Optional.ofNullable(task.getContent()));
+        assertEquals(1337L, (long)task.getId());
+        assertEquals("Coverage task", task.getTitle());
+        assertEquals("Coverage coverage", task.getContent());
     }
 
     @Test
@@ -39,9 +39,9 @@ public class TaskMapperTestSuite {
         //When
         TaskDto taskDto = taskMapper.mapToTaskDto(task);
         //Then
-        assertEquals(java.util.Optional.ofNullable(1337L), java.util.Optional.ofNullable(taskDto.getId()));
-        assertEquals(java.util.Optional.ofNullable("Coverage task"), java.util.Optional.ofNullable(taskDto.getTitle()));
-        assertEquals(java.util.Optional.ofNullable("Coverage coverage"), java.util.Optional.ofNullable(taskDto.getContent()));
+        assertEquals(1337L, (long)taskDto.getId());
+        assertEquals("Coverage task", taskDto.getTitle());
+        assertEquals("Coverage coverage", taskDto.getContent());
     }
 
     @Test
@@ -55,10 +55,10 @@ public class TaskMapperTestSuite {
         //When
         List<TaskDto> taskDtos = taskMapper.mapToTaskDtoList(tasks);
         //Then
-        assertEquals(java.util.Optional.ofNullable(1337L), java.util.Optional.ofNullable(taskDtos.get(0).getId()));
-        assertEquals(java.util.Optional.ofNullable(1338L), java.util.Optional.ofNullable(taskDtos.get(1).getId()));
-        assertEquals(java.util.Optional.ofNullable(1339L), java.util.Optional.ofNullable(taskDtos.get(2).getId()));
-        assertEquals(java.util.Optional.ofNullable(1340L), java.util.Optional.ofNullable(taskDtos.get(3).getId()));
+        assertEquals(1337L, (long)taskDtos.get(0).getId());
+        assertEquals(1338L, (long)taskDtos.get(1).getId());
+        assertEquals(1339L, (long)taskDtos.get(2).getId());
+        assertEquals(1340L, (long)taskDtos.get(3).getId());
         assertEquals("Coverage task0", taskDtos.get(0).getTitle());
         assertEquals("Coverage task1", taskDtos.get(1).getTitle());
         assertEquals("Coverage task2", taskDtos.get(2).getTitle());
