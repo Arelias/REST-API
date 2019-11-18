@@ -33,17 +33,6 @@ public class TaskControllerTest {
     private TaskController taskController;
 
     @Test
-    public void shouldFetchEmptyTasks() throws Exception {
-        //Given
-        List<TaskDto> taskDtos = new ArrayList<>();
-        when(taskController.getTasks()).thenReturn(taskDtos);
-        //When & Then
-        mockMvc.perform(get("/v1/task/getTasks").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().is(200)) //or isOk() method
-                .andExpect(jsonPath("$", hasSize(0)));
-    }
-
-    @Test
     public void shouldReturnsTasks() throws Exception {
         //Given
         TaskDto task = new TaskDto(1L, "Task 1", "Description 1");
@@ -56,8 +45,19 @@ public class TaskControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].name", is("Task 1")))
-                .andExpect(jsonPath("$[0].description", is("Description 1")));
+                .andExpect(jsonPath("$[0].title", is("Task 1")))
+                .andExpect(jsonPath("$[0].content", is("Description 1")));
+    }
+
+    @Test
+    public void shouldFetchEmptyTasks() throws Exception {
+        //Given
+        List<TaskDto> taskDtos = new ArrayList<>();
+        when(taskController.getTasks()).thenReturn(taskDtos);
+        //When & Then
+        mockMvc.perform(get("/v1/task/getTasks").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is(200)) //or isOk() method
+                .andExpect(jsonPath("$", hasSize(0)));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class TaskControllerTest {
     }
 
     @Test
-    public void deleteTask() throws Exception {
+    public void shouldDeleteTask() throws Exception {
         //Given
 
         //When & Then
@@ -84,7 +84,7 @@ public class TaskControllerTest {
     }
 
     @Test
-    public void updateTask() throws Exception {
+    public void shouldUpdateTask() throws Exception {
         //Given
         TaskDto createdTask = new TaskDto(123L, "Task 234", "Description 234");
 
@@ -105,7 +105,7 @@ public class TaskControllerTest {
     }
 
     @Test
-    public void createTask() throws Exception {
+    public void shouldCreateTask() throws Exception {
         //Given
         TaskDto initialTask = new TaskDto(null, "Task 123", "Description 123");
         TaskDto createdTask = new TaskDto(123L, "Task 123", "Description 123");
