@@ -36,10 +36,12 @@ dependencies {
     //Json object mapping
     compile('com.google.code.gson:gson:2.8.2')
 
+    //Spring actuator - endpoints for getting data about my app
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+
     //Documentation
     compile('io.springfox:springfox-swagger2:2.7.0')
     compile('io.springfox:springfox-swagger-ui:2.7.0')
-
 
     //Heroku - postgres, my jar - mysql
   compile('mysql:mysql-connector-java')
